@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sokoban</title>
+	<link rel="stylesheet" href="style.css">
+	<script defer src="gl-matrix-min.js"></script>
+	<script defer src="shaders.js"></script>
+	<script defer src="basics.js"></script>
+	<script defer src="textures.js"></script>
+	<script defer src="input.js"></script>
+	<script defer src="renderer.js"></script>
+	<script defer src="levels.js"></script>
+	<script defer src="main.js"></script>
+</head>
+
+<body>
+	<noscript>Please enable Javascript on your browser to see this page properly.</noscript>
+	<div id="sokoban">
+		<div id="game-help">[WASD / &larr;&uarr;&darr;&rarr;] Move · [Z] Undo · [R] Reset · [L] Lighting mode</div>
+		<canvas id="game-canvas"></canvas>
+		<div id="game-status"></div>
+		<div id="level-complete-message">Level completed - press N to proceed</div>
+		<div id="mobile-buttons">
+			<div id="light-btn" class="btn">
+				<img src="assets/icon_light.png" alt="">
+			</div>
+			<div id="reset-btn" class="btn">
+				<img src="assets/icon_restart.png" alt="">
+			</div>
+			<div id="undo-btn" class="btn">
+				<img src="assets/icon_undo.png" alt="">
+			</div>
+			<div id="up-btn" class="btn">
+				<img src="assets/icon_up.png" alt="">
+			</div>
+			<div id="left-btn" class="btn">
+				<img src="assets/icon_left.png" alt="">
+			</div>
+			<div id="right-btn" class="btn">
+				<img src="assets/icon_right.png" alt="">
+			</div>
+			<div id="down-btn" class="btn">
+				<img src="assets/icon_down.png" alt="">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

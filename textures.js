@@ -1,0 +1,85 @@
+function loadTexture(url)
+{
+	let texture = gl.createTexture();
+	const image = new Image();
+	image.src = url;
+	image.onload = e =>
+	{
+		gl.bindTexture(gl.TEXTURE_2D, texture);
+		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+		gl.generateMipmap(gl.TEXTURE_2D);
+	};
+	return texture;
+}
+
+function getUVFromCorners(topLeftUV, bottomRightUV)
+{
+	let UV = [
+		[    topLeftUV.x,     topLeftUV.y],
+		[bottomRightUV.x,     topLeftUV.y],
+		[    topLeftUV.x, bottomRightUV.y],
+		[bottomRightUV.x, bottomRightUV.y]
+	];
+	return UV;
+}
+
+const TX_ATLAS_DIM = 128;
+const TEXTURE_TILE_SIZE = 16;
+
+const
+TX_NONE = [
+	new v2(0*TEXTURE_TILE_SIZE, 0*TEXTURE_TILE_SIZE),
+	new v2(1*TEXTURE_TILE_SIZE, 1*TEXTURE_TILE_SIZE)
+],
+TX_DIRT_0 = [
+	new v2(0*TEXTURE_TILE_SIZE, 1*TEXTURE_TILE_SIZE),
+	new v2(1*TEXTURE_TILE_SIZE, 2*TEXTURE_TILE_SIZE)
+],
+TX_DIRT_1 = [
+	new v2(1*TEXTURE_TILE_SIZE, 1*TEXTURE_TILE_SIZE),
+	new v2(2*TEXTURE_TILE_SIZE, 2*TEXTURE_TILE_SIZE)
+],
+TX_DIRT_2 = [
+	new v2(2*TEXTURE_TILE_SIZE, 1*TEXTURE_TILE_SIZE),
+	new v2(3*TEXTURE_TILE_SIZE, 2*TEXTURE_TILE_SIZE)
+],
+TX_DIRT_3 = [
+	new v2(3*TEXTURE_TILE_SIZE, 1*TEXTURE_TILE_SIZE),
+	new v2(4*TEXTURE_TILE_SIZE, 2*TEXTURE_TILE_SIZE)
+],
+TX_WALL_0 = [
+	new v2(0*TEXTURE_TILE_SIZE, 2*TEXTURE_TILE_SIZE),
+	new v2(1*TEXTURE_TILE_SIZE, 3*TEXTURE_TILE_SIZE)
+],
+TX_WALL_1 = [
+	new v2(1*TEXTURE_TILE_SIZE, 2*TEXTURE_TILE_SIZE),
+	new v2(2*TEXTURE_TILE_SIZE, 3*TEXTURE_TILE_SIZE)
+],
+TX_WALL_2 = [
+	new v2(2*TEXTURE_TILE_SIZE, 2*TEXTURE_TILE_SIZE),
+	new v2(3*TEXTURE_TILE_SIZE, 3*TEXTURE_TILE_SIZE)
+],
+TX_WALL_3 = [
+	new v2(3*TEXTURE_TILE_SIZE, 2*TEXTURE_TILE_SIZE),
+	new v2(4*TEXTURE_TILE_SIZE, 3*TEXTURE_TILE_SIZE)
+],
+TX_CRATE = [
+	new v2(1*TEXTURE_TILE_SIZE, 0*TEXTURE_TILE_SIZE),
+	new v2(2*TEXTURE_TILE_SIZE, 1*TEXTURE_TILE_SIZE)
+],
+TX_PLACED_CRATE = [
+	new v2(2*TEXTURE_TILE_SIZE, 0*TEXTURE_TILE_SIZE),
+	new v2(3*TEXTURE_TILE_SIZE, 1*TEXTURE_TILE_SIZE)
+],
+TX_CHAR_RIGHT = [
+	new v2(0*TEXTURE_TILE_SIZE, 3*TEXTURE_TILE_SIZE),
+	new v2(1*TEXTURE_TILE_SIZE, 4*TEXTURE_TILE_SIZE)
+],
+TX_CHAR_LEFT = [
+	new v2(1*TEXTURE_TILE_SIZE, 3*TEXTURE_TILE_SIZE),
+	new v2(2*TEXTURE_TILE_SIZE, 4*TEXTURE_TILE_SIZE)
+],
+TX_CRATE_TARGET = [
+	new v2(3*TEXTURE_TILE_SIZE, 0*TEXTURE_TILE_SIZE),
+	new v2(4*TEXTURE_TILE_SIZE, 1*TEXTURE_TILE_SIZE)
+];

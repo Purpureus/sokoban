@@ -1,0 +1,149 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-khtml-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+}
+
+body {
+	margin: 0;
+	background-color: #bdb29e;
+	display: flex;
+	justify-content: center;
+	padding-top: 2rem;
+}
+
+#sokoban {
+	position: relative;
+	width: 640px;
+	max-width: 100%;
+	height: 640px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #eee;
+	font-family: 'Liberation Mono', monospace;
+	text-align: center;
+
+	background-color: #5e3c3e;
+	background: linear-gradient(0deg, #452b2b, #5e3c3e);
+}
+
+canvas {
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-crisp-edges;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+	margin: 20px 0;
+}
+
+#game-status {
+	padding: 0 10px;
+	font-size: 15px;
+	text-transform: uppercase;
+	padding-bottom: 6px;
+}
+#game-help {
+	margin: 10px 0;
+	padding: 0 10px;
+	font-size: 16px;
+	opacity: .8;
+}
+#level-complete-message {
+	position: absolute;
+	padding: 30px;
+	background-color: #0008;
+	display: none;
+}
+#level-complete-message.enabled {
+	display: initial;
+}
+
+#mobile-buttons {
+	margin-left: auto;
+	width: calc(75px * 4);
+	height: 150px;
+	right: 0;
+	bottom: 0;
+	display: none;
+	grid-template-rows: 1fr, 1fr;
+	grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+	align-items: center;
+	justify-content: space-evenly;
+}
+#mobile-buttons .btn {
+	background-color: #987;
+	width: 66px;
+	height: 66px;
+	opacity: .7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#mobile-buttons .btn:hover,
+#mobile-buttons .btn:active {
+	opacity: 1;
+}
+#mobile-buttons #light-btn {
+	background-color: #678;
+	grid-row: 2;
+	grid-column: 1;
+}
+#mobile-buttons #reset-btn {
+	background-color: #678;
+	grid-row: 1;
+	grid-column: 1;
+}
+#mobile-buttons #undo-btn {
+	background-color: #678;
+	grid-row: 1;
+	grid-column: 2;
+}
+#mobile-buttons #up-btn {
+	grid-row: 1;
+	grid-column: 3;
+}
+#mobile-buttons #left-btn {
+	grid-row: 2;
+	grid-column: 2;
+}
+#mobile-buttons #right-btn {
+	grid-row: 2;
+	grid-column: 4;
+}
+#mobile-buttons #down-btn {
+	grid-row: 2;
+	grid-column: 3;
+}
+
+@media only screen and (max-width: 768px) {
+	body {
+		padding-top: 0;
+	}
+	#sokoban {
+		height: auto;
+		justify-content: flex-start;
+	}
+	canvas {
+		margin: 10px 0;
+	}
+	#level-complete-message {
+		top: 65px;
+		pointer-events: none;
+	}
+	#game-status {
+		margin: 10px 0;
+	}
+	#game-help {
+		display: none;
+	}
+	#mobile-buttons {
+		display: grid;
+	}
+}
