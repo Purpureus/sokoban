@@ -1,0 +1,22 @@
+{
+  "name": "sokoban",
+  "version": "1.0.0",
+  "description": "Sokoban\r JS/WebGL implementation of the classic Sokoban game.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Purpureus/sokoban.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Purpureus/sokoban/issues"
+  },
+  "homepage": "https://github.com/Purpureus/sokoban#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
