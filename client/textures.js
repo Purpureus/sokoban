@@ -1,15 +1,15 @@
 function loadTexture(url)
 {
-	let texture = gl.createTexture();
-	const image = new Image();
-	image.src = url;
+	let texture = gl.createTexture()
+	const image = new Image()
+	image.src = url
 	image.onload = e =>
 	{
-		gl.bindTexture(gl.TEXTURE_2D, texture);
-		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
-		gl.generateMipmap(gl.TEXTURE_2D);
-	};
-	return texture;
+		gl.bindTexture(gl.TEXTURE_2D, texture)
+		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image)
+		gl.generateMipmap(gl.TEXTURE_2D)
+	}
+	return texture
 }
 
 function getUVFromCorners(topLeftUV, bottomRightUV)
@@ -19,12 +19,12 @@ function getUVFromCorners(topLeftUV, bottomRightUV)
 		[bottomRightUV.x,     topLeftUV.y],
 		[    topLeftUV.x, bottomRightUV.y],
 		[bottomRightUV.x, bottomRightUV.y]
-	];
-	return UV;
+	]
+	return UV
 }
 
-const TX_ATLAS_DIM = 128;
-const TEXTURE_TILE_SIZE = 16;
+const TX_ATLAS_DIM = 128
+const TEXTURE_TILE_SIZE = 16
 
 const
 TX_NONE = [
@@ -82,4 +82,4 @@ TX_CHAR_LEFT = [
 TX_CRATE_TARGET = [
 	new v2(3*TEXTURE_TILE_SIZE, 0*TEXTURE_TILE_SIZE),
 	new v2(4*TEXTURE_TILE_SIZE, 1*TEXTURE_TILE_SIZE)
-];
+]
